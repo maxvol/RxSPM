@@ -1,3 +1,3 @@
-struct Rx {
+struct RxSPM {
     var text = "Hello, World!"
 }
