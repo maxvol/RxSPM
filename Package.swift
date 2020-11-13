@@ -23,11 +23,18 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
           name: "Rx",
-          dependencies: ["RxSwift" , "RxCocoa", "RxRelay"]
+          dependencies: [
+              .product(name: "RxSwift", package: "RxSwift"),
+              .product(name: "RxCocoa", package: "RxSwift"),
+              .product(name: "RxRelay", package: "RxSwift")
+          ]
         ),
         .target(
           name: "RxTesting",
-          dependencies: ["RxTest", "RxBlocking"]
+          dependencies: [
+              .product(name: "RxTest", package: "RxSwift"),
+              .product(name: "RxBlocking", package: "RxSwift")
+          ]
         )
     ]
 )
